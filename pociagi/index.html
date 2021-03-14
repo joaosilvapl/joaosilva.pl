@@ -3,6 +3,19 @@
 <head>
     <title>Pociągi</title>
 
+    <style type="text/css">
+        .scoreDiv {
+            text-align: center;
+        }
+        
+        .highestScore {
+            background-color: yellow;
+            border-color: black;
+            border-width: medium;
+            border-style: solid;
+            font-weight: bold;
+        }
+    </style>
 
     <script type="text/javascript">
         partialScore1 = 0;
@@ -52,6 +65,24 @@
             totalScore1Elem.innerHTML = totalScore1;
             totalScore2Elem.innerHTML = totalScore2;
             totalScore3Elem.innerHTML = totalScore3;
+
+
+            highestScore = totalScore1;
+            highestScoreElem = totalScore1Elem;
+
+            if (totalScore2 > highestScore) {
+                highestScore = totalScore2;
+                highestScoreElem = totalScore2Elem;
+            }
+
+            if (totalScore3 > highestScore) {
+                highestScoreElem = totalScore3Elem;
+            }
+
+            totalScore1Elem.className = "scoreDiv";
+            totalScore2Elem.className = "scoreDiv";
+            totalScore3Elem.className = "scoreDiv";
+            highestScoreElem.className = "scoreDiv highestScore";
         }
     </script>
 
@@ -125,13 +156,13 @@
     <tr>
         <td>Suma punktów</td>
         <td>
-            <div id="totalScore1" />
+            <div id="totalScore1" class="scoreDiv" />
         </td>
         <td>
-            <div id="totalScore2" />
+            <div class="scoreDiv" id="totalScore2" />
         </td>
         <td>
-            <div id="totalScore3" />
+            <div id="totalScore3" class="scoreDiv" />
         </td>
     </tr>
 
