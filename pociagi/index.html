@@ -1,0 +1,140 @@
+<html>
+
+<head>
+    <title>Pociągi</title>
+
+
+    <script type="text/javascript">
+        partialScore1 = 0;
+        partialScore2 = 0;
+        partialScore3 = 0;
+
+        updateScore = (playerId) => {
+
+            let partialScore = 0;
+
+            partialScore += parseInt(document.getElementById("goals" + playerId).value);
+            partialScore += -4 * parseInt(document.getElementById("stations" + playerId).value);
+            partialScore += 2 * parseInt(document.getElementById("twoWagons" + playerId).value);
+            partialScore += 4 * parseInt(document.getElementById("threeWagons" + playerId).value);
+            partialScore += 7 * parseInt(document.getElementById("fourWagons" + playerId).value);
+            partialScore += 15 * parseInt(document.getElementById("sixWagons" + playerId).value);
+            partialScore += 21 * parseInt(document.getElementById("eightWagons" + playerId).value);
+
+            if (playerId == 1) {
+                partialScore1 = partialScore;
+            } else if (playerId == 2) {
+                partialScore2 = partialScore;
+            } else if (playerId == 3) {
+                partialScore3 = partialScore;
+            }
+
+            let totalScore1Elem = document.getElementById("totalScore1");
+            let totalScore2Elem = document.getElementById("totalScore2");
+            let totalScore3Elem = document.getElementById("totalScore3");
+
+            let longestRoute1Elem = document.getElementById("longestRoute1");
+            let longestRoute2Elem = document.getElementById("longestRoute2");
+            let longestRoute3Elem = document.getElementById("longestRoute3");
+
+            let totalScore1 = partialScore1;
+            let totalScore2 = partialScore2;
+            let totalScore3 = partialScore3;
+
+            if (longestRoute1Elem.checked) {
+                totalScore1 += 10;
+            } else if (longestRoute2Elem.checked) {
+                totalScore2 += 10;
+            } else if (longestRoute3Elem.checked) {
+                totalScore3 += 10;
+            }
+
+            totalScore1Elem.innerHTML = totalScore1;
+            totalScore2Elem.innerHTML = totalScore2;
+            totalScore3Elem.innerHTML = totalScore3;
+        }
+    </script>
+
+</head>
+
+<table>
+
+    <tr>
+        <th></th>
+        <th>Gabi</th>
+        <th>Ula</th>
+        <th>Joao</th>
+    </tr>
+
+    <tr>
+        <td>Najdłusza trasa</td>
+        <td><input type="radio" id="longestRoute1" name="longestRoute" onchange="updateScore(1);"></td>
+        <td><input type="radio" id="longestRoute2" name="longestRoute" onchange="updateScore(2);"></td>
+        <td><input type="radio" id="longestRoute3" name="longestRoute" onchange="updateScore(3);"></td>
+    </tr>
+
+    <tr>
+        <td>Cele</td>
+        <td><input type="number" id="goals1" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="goals2" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="goals3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Wykorzestane dworce</td>
+        <td><input type="number" id="stations1" min="0" max="3" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="stations2" min="0" max="3" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="stations3" min="0" max="3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Liczba 2 wagoników</td>
+        <td><input type="number" id="twoWagons1" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="twoWagons2" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="twoWagons3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Liczba 3 wagoników</td>
+        <td><input type="number" id="threeWagons1" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="threeWagons2" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="threeWagons3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Liczba 4 wagoników</td>
+        <td><input type="number" id="fourWagons1" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="fourWagons2" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="fourWagons3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Liczba 6 wagoników</td>
+        <td><input type="number" id="sixWagons1" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="sixWagons2" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="sixWagons3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Liczba 8 wagoników</td>
+        <td><input type="number" id="eightWagons1" value="0" onchange="updateScore(1);" /></td>
+        <td><input type="number" id="eightWagons2" value="0" onchange="updateScore(2);" /></td>
+        <td><input type="number" id="eightWagons3" value="0" onchange="updateScore(3);" /></td>
+    </tr>
+
+    <tr>
+        <td>Suma punktów</td>
+        <td>
+            <div id="totalScore1" />
+        </td>
+        <td>
+            <div id="totalScore2" />
+        </td>
+        <td>
+            <div id="totalScore3" />
+        </td>
+    </tr>
+
+</table>
+
+</html>
