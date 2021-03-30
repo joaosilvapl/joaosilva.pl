@@ -8,7 +8,7 @@
 a,
 a:focus,
 a:hover {
-    color: #fff;
+    color: rgb(255, 255, 255);
 }
 
 
@@ -20,8 +20,8 @@ a:hover {
     color: #333;
     text-shadow: none;
     /* Prevent inheritance from `body` */
-    background-color: #fff;
-    border: 1px solid #fff;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid rgb(212, 192, 192);
 }
 
 
@@ -32,13 +32,18 @@ a:hover {
 html,
 body {
     height: 100%;
-    background-color: DarkSlateGray;
+    color: white;
+    background-color: #add8e6;
+    background-image: url("https://i.gifer.com/7QCE.gif");
+    background-size: 33%;
+    background-attachment: fixed;
+    font-family: "Courier New", monospace;
 }
 
 body {
     color: #fff;
     text-align: center;
-    text-shadow: 0 1px 3px rgba(0, 0, 0, .5);
+    text-shadow: 0 1px 3px rgba(129, 86, 86, 0.5);
 }
 
 
