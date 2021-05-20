@@ -1,28 +1,11 @@
-.div1 {
-    width: 90%;
-    margin: 10px;
-}
-
-.image2 {
-    border-style: dotted dashed;
-    border-color: blue;
-    border-radius: 10px;
-    border-width: 5px;
-    display: block;
-    margin: auto;
-    width: 20%;
-    padding: 10px;
-}
-
-.image2:hover {
-    transform: rotate(120deg);
-    transition: 1.3s;
-}
-
 #startButton {
     border-radius: 10px;
     border-width: 5px;
     display: block;
     margin: auto;
     padding: 10px;
+}
+
+#counterText {
+    font-size: 5rem;
 }
