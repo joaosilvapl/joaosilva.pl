@@ -124,13 +124,3 @@ body {
         transform: rotate(180deg);
     }
 }
-
-
-/* Dark mode */
-
-@media (prefers-color-scheme: dark) {
-     :root {
-        --bg: #17181c;
-        --fg: #c7cad1;
-    }
-}
