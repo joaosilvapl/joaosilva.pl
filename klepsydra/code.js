@@ -1,0 +1,3 @@
+startCounter = () => {
+    alert('xxx');
+}

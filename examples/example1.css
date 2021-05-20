@@ -1,0 +1,38 @@
+.image1 {
+    border-style: groove;
+    border-color: blue;
+    border-radius: 10px;
+    border-width: 5px;
+    display: block;
+    margin: auto;
+    width: 20%;
+    padding: 0px;
+}
+
+.image1:hover {
+    content: url("cat2.gif");
+    border-color: red;
+    border-radius: 20px;
+    border-width: 10px;
+}
+
+.div1 {
+    width: 90%;
+    margin: 10px;
+}
+
+.image2 {
+    border-style: dotted dashed;
+    border-color: blue;
+    border-radius: 10px;
+    border-width: 5px;
+    display: block;
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+    transition: 1.3s;
+}
+
+.image2:hover {
+    transform: rotate(120deg);
+}
