@@ -1,5 +1,5 @@
 h1 {
-    color:cornflowerblue;
+    color: black;
     font-family:fantasy;
     font-size: 160px;
     
@@ -44,7 +44,7 @@ h1 {
 }
 
 .a, .b, .c, .d, .e, .f{
-    background-color: #e5f2f2;
+    background-color:aliceblue;
     height: 9px;
     margin: 0 auto;
 }

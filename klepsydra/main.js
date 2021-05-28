@@ -2,7 +2,10 @@ counterSeconds = 0;
 
 startCounter = () => {
 
-    counterSeconds = 5;
+    counterSeconds = 64;
+    
+    var audio = new Audio('button-3.mp3');
+        audio.play();
 
     updateCounterText();
 }
