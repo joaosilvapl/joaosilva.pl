@@ -1,5 +1,6 @@
 counterSeconds = 0;
 
+runCount = 0;
 
 
 audioStart = new Audio('button-3.mp3');
@@ -7,9 +8,15 @@ audioEnd = new Audio('clong-1.mp3');
 
 startCounter = () => {
     
+    runCount++;
+    
+    counterSeconds = getInitialTime();
+    
+    audioEnd.pause();
+    audioEnd.currentTime = 0;
     audioStart.play();
 
-    updateCounterText();
+    updateCounterText(runCount);
 }
 
 getInitialTime = () => {
@@ -29,14 +36,18 @@ setCounterText = x => {
     counterTextDiv.innerHTML = x;
 }
 
-updateCounterText = () => {
+updateCounterText = (runNumber) => {
 
+    if(runNumber != runCount){
+        return;
+    }
+    
     setCounterText(counterSeconds);
 
     counterSeconds = counterSeconds - 1;
 
     if (counterSeconds >= 0) {
-        setTimeout(updateCounterText, 1000);
+        setTimeout(() => updateCounterText(runNumber), 1000);
     } else {
         audioEnd.play();
     }
