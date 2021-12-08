@@ -1,0 +1,12 @@
+.container1 {
+  padding-top: 40px;
+  /* width: 300px; */
+  margin: auto;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.vertical-center1 {
+  vertical-align: middle;
+  display: inline-block;
+}
