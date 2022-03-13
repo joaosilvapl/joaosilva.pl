@@ -12,6 +12,65 @@ taskData = {
     rowData: [
       ["backen (piec)", "backt / bäckt", "backte / buk", "gebacken"],
       ["befehlen (rozkazywać)", "befiehlt", "befahl", "befohlen"],
+     
+
+
+
+      [" beginnen (zaczynać (się))","","begann","begonnen"],
+      
+
+
+
+      ["bieten (oferować)","","bot","geboten"],
+
+      ["bitten (prosić)","","bat","gebeten"],
+      ["bleiben (zostawać)","","blieb","geblieben (s.)"],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+      
+
+
+      ["nennen (nazywac)","","nannte","genannt"],
+        
+      ["raten (radzić","rät","riet","geraten"],
+      
+
+
+
+      ["reiben (trzec)","","rieb","gerieben"],
+      ["reißen (drzeć, rwać)","","riss","gerissen"],
+      ["reiten (jeździć konno)","","ritt","geritten (s.)"],
+      ["rennen (pędzić, biec)","","rannte","gerannt (s.)"],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
+    //   ["","","",""],
     ],
   },
 };
@@ -19,12 +78,15 @@ taskData = {
 taskElements = [];
 
 createAllTaskElements = (parent) => {
+  const taskHeaderDiv = document.createElement("div");
+
+  taskHeaderDiv.className = "taskHeader";
+
+  taskHeaderDiv.innerHTML = taskData.title;
+
+  document.getElementById("tasksDiv").appendChild(taskHeaderDiv);
+
   const div = document.createElement("div");
-
-  div.className = "taskHeader";
-
-  div.innerHTML = taskData.title;
-
   document.getElementById("tasksDiv").appendChild(div);
 
   var taskElement = createTaskElement(div, taskData.type, taskData.data);
@@ -107,17 +169,28 @@ createTableTaskElement = (parentElement, columnTitles, rowData) => {
 };
 
 verifyAllTaskResults = () => {
-  verifyTaskResults(taskData.type, taskData.data, taskElements[0]);
+  var resultData = verifyTaskResults(
+    taskData.type,
+    taskData.data,
+    taskElements[0]
+  );
+
+  document.getElementById(
+    "resultsText"
+  ).innerHTML = `Poprawne: ${resultData.correctCount}, niepoprawne: ${resultData.incorrectCount}`;
 };
 
 verifyTaskResults = (taskType, taskData, taskElements) => {
   switch (taskType) {
     case "table":
-      verifyTableTaskResults(taskData, taskElements);
+      return verifyTableTaskResults(taskData, taskElements);
   }
 };
 
 verifyTableTaskResults = (taskData, taskElements) => {
+  let correctCount = 0;
+  let incorrectCount = 0;
+
   for (let i = 0; i < taskData.rowData.length; i++) {
     var currentRowData = taskData.rowData[i];
     var inputElements = taskElements.inputs[i];
@@ -128,10 +201,27 @@ verifyTableTaskResults = (taskData, taskElements) => {
 
       imgElements[j - 1].className = "visible";
 
+      let imgData = "";
+
+      if (expectedValue == inputValue) {
+        imgData = "good.svg";
+        correctCount += 1;
+      } else {
+        imgData = "fail.svg";
+        incorrectCount += 1;
+      }
+
       imgElements[j - 1].data =
         expectedValue == inputValue ? "good.svg" : "fail.svg";
     }
   }
+
+  var resultData = {
+    correctCount: correctCount,
+    incorrectCount: incorrectCount,
+  };
+
+  return resultData;
 };
 
 createAllTaskElements();
