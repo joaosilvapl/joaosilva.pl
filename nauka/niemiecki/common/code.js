@@ -124,6 +124,7 @@ createFillInBlanksTaskElement = (parentElement, taskIndex, items) => {
     let itemExpectedAnswers = [];
 
     const itemDiv = document.createElement("div");
+    itemDiv.className = "taskLine";
 
     for (let j = 0; j < itemTextSplitted.length; j++) {
       const span = document.createElement("span");

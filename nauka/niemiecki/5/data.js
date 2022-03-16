@@ -53,4 +53,35 @@ allTasksData = [
       ],
     },
   },
+  {
+    title:
+      "Wpisz rodzajniki i przeczenie rzeczowników we właściwych przypadkach",
+    type: "fillInBlanks",
+
+    data: {
+      items: [
+        { text: "Ich sehe %% Hals (kein), sondern %% Finger (ein).", expectedAnswers: ["keinem", "einem"] },
+        { text: "Fährst du lieber mit %% Auto (das) oder mit %% Bus (der)? - Ich gehe lieber zu Fuß.", expectedAnswers: ["dem", "dem"] },
+        { text: "Klara schreibt ihren Aufsatz mit %% der Hand (die) und nicht am Computer.", expectedAnswers: ["der"] },
+        { text: "Er hat einen Monat auf %% Land (das) verbracht. Es war sehr langweilig.", expectedAnswers: ["dem"] },
+        { text: "Wir brauchen %% Kuli (ein), %% Bleistift (ein) un %% Radiergummi (ein).", expectedAnswers: ["einen", "einen", "einen"] },
+        { text: "Ich treffe mich gern nach %% Unterricht (der) mit %% Freunden (Pl.).", expectedAnswers: ["dem", "den"] },
+      ],
+    },
+  },
+  {
+    title: "Uzupełnij tabelę brakującymi formami czasowników nieregularnych",
+    type: "table",
+
+    data: {
+      columnTitles: ["Infinitiv", "Präesens (er/sie/es)", "Perfekt (er/sie/es)", "Bedeutung"],
+      rowData: [
+        ["laufen", "läuft","ist gelaufen", "biegać"],
+        ["singen", "singt","hat gesungen", "śpiewać"],
+        ["springen", "springt","ist gesprungen", "skakać"],
+        ["verlieren", "verliert","hat verloren", "gubić"],
+        
+      ],
+    },
+  },
 ];
