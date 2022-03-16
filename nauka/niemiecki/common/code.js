@@ -126,7 +126,6 @@ createFillInBlanksTaskElement = (parentElement, taskIndex, items) => {
     const itemDiv = document.createElement("div");
 
     for (let j = 0; j < itemTextSplitted.length; j++) {
-
       const span = document.createElement("span");
       span.innerText = itemTextSplitted[j];
       itemDiv.appendChild(span);
@@ -253,7 +252,7 @@ verifyFillInBlanksTaskResults = (taskData, taskElements) => {
         incorrectCount += 1;
 
         inputElement.className = "incorrect";
-        
+
         expectedAnswerElement.className = "expectedAnswer";
         expectedAnswerElement.innerHTML = expectedValue;
       }
@@ -266,6 +265,10 @@ verifyFillInBlanksTaskResults = (taskData, taskElements) => {
   };
 
   return resultData;
+};
+
+copyTextToClipboard = (text) => {
+  navigator.clipboard.writeText(text);
 };
 
 createAllTaskElements();
