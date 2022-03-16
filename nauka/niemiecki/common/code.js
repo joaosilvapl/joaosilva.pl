@@ -20,7 +20,12 @@ createTaskElements = (parentElement, taskIndex, taskData) => {
   const div = document.createElement("div");
   parentElement.appendChild(div);
 
-  var taskElement = createTaskElement(div, taskIndex, taskData.type, taskData.data);
+  var taskElement = createTaskElement(
+    div,
+    taskIndex,
+    taskData.type,
+    taskData.data
+  );
 
   taskElements.push(taskElement);
 };
@@ -33,6 +38,12 @@ createTaskElement = (parentElement, taskIndex, taskType, taskData) => {
         taskIndex,
         taskData.columnTitles,
         taskData.rowData
+      );
+    case "fillInBlanks":
+      return createFillInBlanksTaskElement(
+        parentElement,
+        taskIndex,
+        taskData.items
       );
   }
 };
@@ -97,10 +108,64 @@ createTableTaskElement = (parentElement, taskIndex, columnTitles, rowData) => {
   return elements;
 };
 
+createFillInBlanksTaskElement = (parentElement, taskIndex, items) => {
+  var inputs = [];
+  var expectedAnswers = [];
+
+  const mainDiv = document.createElement("div");
+  mainDiv.className = "taskFillInBlanksMainDiv";
+
+  for (let i = 0; i < items.length; i++) {
+    var currentItem = items[i];
+
+    let itemTextSplitted = currentItem.text.split("%%");
+
+    let itemInputs = [];
+    let itemExpectedAnswers = [];
+
+    const itemDiv = document.createElement("div");
+
+    for (let j = 0; j < itemTextSplitted.length; j++) {
+
+      const span = document.createElement("span");
+      span.innerText = itemTextSplitted[j];
+      itemDiv.appendChild(span);
+
+      if (currentItem.expectedAnswers.length > j) {
+        let textInput = document.createElement("INPUT");
+        textInput.id = `textInput-${taskIndex}-${i}-${j}`;
+        textInput.setAttribute("type", "text");
+        itemDiv.appendChild(textInput);
+        itemInputs.push(textInput);
+
+        let expectedAnswerSpan = document.createElement("span");
+        expectedAnswerSpan.id = `expectedAnswerSpan-${taskIndex}-${i}-${j}`;
+        expectedAnswerSpan.className = "hidden";
+        itemDiv.appendChild(expectedAnswerSpan);
+        itemExpectedAnswers.push(expectedAnswerSpan);
+      }
+    }
+
+    inputs.push(itemInputs);
+    expectedAnswers.push(itemExpectedAnswers);
+
+    mainDiv.appendChild(itemDiv);
+  }
+
+  parentElement.appendChild(mainDiv);
+
+  var elements = {
+    inputs: inputs,
+    expectedAnswers: expectedAnswers,
+  };
+
+  return elements;
+};
+
 verifyAllTaskResults = () => {
   let correctCount = 0;
   let incorrectCount = 0;
-  
+
   for (let i = 0; i < allTasksData.length; i++) {
     let taskData = allTasksData[i];
     let resultData = verifyTaskResults(
@@ -111,7 +176,6 @@ verifyAllTaskResults = () => {
 
     correctCount += resultData.correctCount;
     incorrectCount += resultData.incorrectCount;
-
   }
 
   document.getElementById(
@@ -123,6 +187,8 @@ verifyTaskResults = (taskType, taskData, taskElements) => {
   switch (taskType) {
     case "table":
       return verifyTableTaskResults(taskData, taskElements);
+    case "fillInBlanks":
+      return verifyFillInBlanksTaskResults(taskData, taskElements);
   }
 };
 
@@ -143,11 +209,9 @@ verifyTableTaskResults = (taskData, taskElements) => {
       inputElement.disabled = true;
 
       if (expectedValue == inputValue) {
-        imgData = "good.svg";
         correctCount += 1;
         inputElement.className = "correct";
       } else {
-        imgData = "fail.svg";
         incorrectCount += 1;
 
         inputElement.className = "incorrect";
@@ -155,7 +219,44 @@ verifyTableTaskResults = (taskData, taskElements) => {
         expectedAnswerElement.className = "expectedAnswer";
         expectedAnswerElement.innerHTML = expectedValue;
       }
-     
+    }
+  }
+
+  var resultData = {
+    correctCount: correctCount,
+    incorrectCount: incorrectCount,
+  };
+
+  return resultData;
+};
+
+verifyFillInBlanksTaskResults = (taskData, taskElements) => {
+  let correctCount = 0;
+  let incorrectCount = 0;
+
+  for (let i = 0; i < taskData.items.length; i++) {
+    let currentItemData = taskData.items[i];
+    let expectedAnswerElements = taskElements.expectedAnswers[i];
+
+    for (let j = 0; j < currentItemData.expectedAnswers.length; j++) {
+      let expectedValue = currentItemData.expectedAnswers[j];
+      let inputElement = taskElements.inputs[i][j];
+      let inputValue = inputElement.value;
+      let expectedAnswerElement = expectedAnswerElements[j];
+
+      inputElement.disabled = true;
+
+      if (expectedValue == inputValue) {
+        correctCount += 1;
+        inputElement.className = "correct";
+      } else {
+        incorrectCount += 1;
+
+        inputElement.className = "incorrect";
+        
+        expectedAnswerElement.className = "expectedAnswer";
+        expectedAnswerElement.innerHTML = expectedValue;
+      }
     }
   }
 
