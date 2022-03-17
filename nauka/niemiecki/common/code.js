@@ -33,22 +33,13 @@ createTaskElements = (parentElement, taskIndex, taskData) => {
 createTaskElement = (parentElement, taskIndex, taskType, taskData) => {
   switch (taskType) {
     case "table":
-      return createTableTaskElement(
-        parentElement,
-        taskIndex,
-        taskData.columnTitles,
-        taskData.rowData
-      );
+      return createTableTaskElement(parentElement, taskIndex, taskData);
     case "fillInBlanks":
-      return createFillInBlanksTaskElement(
-        parentElement,
-        taskIndex,
-        taskData.items
-      );
+      return createFillInBlanksTaskElement(parentElement, taskIndex, taskData);
   }
 };
 
-createTableTaskElement = (parentElement, taskIndex, columnTitles, rowData) => {
+createTableTaskElement = (parentElement, taskIndex, taskData) => {
   var inputs = [];
   var expectedAnswers = [];
 
@@ -58,14 +49,16 @@ createTableTaskElement = (parentElement, taskIndex, columnTitles, rowData) => {
   var header = table.createTHead();
   var row = header.insertRow(0);
 
-  for (let i = 0; i < columnTitles.length; i++) {
-    var cell = row.insertCell(i);
-    cell.innerHTML = "<b>" + columnTitles[i] + "</b>";
-    cell.className = "taskTableHeaderCell";
+  if (taskData.hasOwnProperty("columnTitles")) {
+    for (let i = 0; i < taskData.columnTitles.length; i++) {
+      var cell = row.insertCell(i);
+      cell.innerHTML = "<b>" + taskData.columnTitles[i] + "</b>";
+      cell.className = "taskTableHeaderCell";
+    }
   }
 
-  for (let i = 0; i < rowData.length; i++) {
-    var currentRowData = rowData[i];
+  for (let i = 0; i < taskData.rowData.length; i++) {
+    var currentRowData = taskData.rowData[i];
     const tr = table.insertRow();
 
     let rowInputs = [];
@@ -75,7 +68,7 @@ createTableTaskElement = (parentElement, taskIndex, columnTitles, rowData) => {
     td.appendChild(document.createTextNode(currentRowData[0]));
     td.className = "taskTableCell";
 
-    for (let j = 1; j < columnTitles.length; j++) {
+    for (let j = 1; j < currentRowData.length; j++) {
       const td = tr.insertCell();
 
       var textInput = document.createElement("INPUT");
@@ -108,15 +101,22 @@ createTableTaskElement = (parentElement, taskIndex, columnTitles, rowData) => {
   return elements;
 };
 
-createFillInBlanksTaskElement = (parentElement, taskIndex, items) => {
+createFillInBlanksTaskElement = (parentElement, taskIndex, taskData) => {
   var inputs = [];
   var expectedAnswers = [];
 
   const mainDiv = document.createElement("div");
   mainDiv.className = "taskFillInBlanksMainDiv";
 
-  for (let i = 0; i < items.length; i++) {
-    var currentItem = items[i];
+  if (taskData.hasOwnProperty("choiceList")) {
+    const choiceListDiv = document.createElement("div");
+    choiceListDiv.className = "choiceList";
+    choiceListDiv.innerText = taskData.choiceList.join(" - ");
+    mainDiv.appendChild(choiceListDiv);
+  }
+
+  for (let i = 0; i < taskData.items.length; i++) {
+    var currentItem = taskData.items[i];
 
     let itemTextSplitted = currentItem.text.split("%%");
 
