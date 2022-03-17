@@ -37,12 +37,12 @@ var allTasksData = [
     data: {
       columnTitles: ["Infinitiv", "2. Person Singular", "Imperativ 2. Person Singular", "2. Person Plural", "Imperativ 2. Person Plural (ihr)"],
       rowData: [
-        ["lesen (czytać)","du liest","Lies bitte!","ihr lest","Lest bitte!"],
-        ["zuhören (słuchać)","du hörst zu","Hör(e) mal zu!","ih hört zu","Hört mal zu!"],
-        ["sprechen (mówić)","du sprichst","Sprich mal!","ihr sprecht","Sprecht mal!"],
-        ["sich setzen (siadać)","du setzt dich","Setz(e) dich bitte!","ih setzt euch","Setzt euch bitte!"],
-        ["fahren (jechać)","du fährst","Fahr(e) mal!","ihr fahrt","Fahrt mal!"],
-        ["ruhig sein (być cicho)","du bist ruhig","Sei bitte ruhig!","ihr seid ruhig","Seid bitte ruhig!"],
+        ["lesen (czytać)","du liest","lies","ihr lest","Lest bitte!"],
+        ["zuhören (słuchać)","du hörst zu","hör zu","ih hört zu","Hört mal zu!"],
+        ["sprechen (mówić)","du sprichst","sprich","ihr sprecht","Sprecht mal!"],
+        ["sich setzen (siadać)","du setzt dich","setz dich","ih setzt euch","Setzt euch bitte!"],
+        ["fahren (jechać)","du fährst","fahr","ihr fahrt","Fahrt mal!"],
+        ["ruhig sein (być cicho)","du bist ruhig","sei ruhig","ihr seid ruhig","Seid bitte ruhig!"],
       ],
     },
   },
