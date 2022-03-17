@@ -63,7 +63,7 @@ allTasksData = [
         ["dein Pausenbrot mitnehmen", "Nimm dein Pausenbrot mit!"],
         ["dein Zimmer aufräumen", "Räume dein Zimmer auf!"],
         ["die Lektüre lesen", "Lies die Lektüre!"],
-        ["um 22 Uhr ins Bett gehen", "Geh um 22 Uhr inst Bett!"],
+        ["um 22 Uhr ins Bett gehen", "Geh um 22 Uhr ins Bett!"],
         
       ],
     },
