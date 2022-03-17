@@ -22,7 +22,7 @@ allTasksData = [
     type: "fillInBlanks",
 
     data: {
-      choiceList:["Heute ist ihr Geburtstag.", "Du sollst das Bad putzen.", "Wie schreiben einen Test in Bio.", "Seine Hobbys sind Sport und Musik.", "Sie weiß das nicht.", "Claudia ist noch krank."],
+      choiceList:["Heute ist ihr Geburtstag.", "Du sollst das Bad putzen.", "Wir schreiben einen Test in Bio.", "Seine Hobbys sind Sport und Musik.", "Sie weiß das nicht.", "Claudia ist noch krank."],
       items: [
         { text: "Ich weiß, dass %%", expectedAnswers: ["sie das nicht weiß"] },
         { text: "Er hat gesagt, dass %%", expectedAnswers: ["seine Hobbys Sport und Musik sind"] },
