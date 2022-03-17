@@ -182,11 +182,13 @@ verifyAllTaskResults = () => {
     "resultsText"
   ).innerHTML = `Poprawne: ${correctCount}, niepoprawne: ${incorrectCount}`;
 
-  let verifyButton = document.getElementById("verifyButton")
+  let verifyButton = document.getElementById("verifyButton");
 
   verifyButton.innerText = "Zacząć od nowa";
   verifyButton.className = "resetButton";
-  verifyButton.onclick = function(){location.reload();};
+  verifyButton.onclick = function () {
+    location.reload();
+  };
 };
 
 verifyTaskResults = (taskType, taskData, taskElements) => {
@@ -274,6 +276,35 @@ verifyFillInBlanksTaskResults = (taskData, taskElements) => {
 
 copyTextToClipboard = (text) => {
   navigator.clipboard.writeText(text);
+};
+
+movePage = (offset) => {
+  let currentUrl = window.location.href;
+
+  let parts = currentUrl.split("/");
+
+  let pageNumber = -1;
+  for (let i = parts.length - 1; i >= 0; i--) {
+    pageNumber = parseInt(parts[i]);
+
+    if (typeof pageNumber == "number" && pageNumber >= 0) {
+      
+      let newPageNumber = pageNumber + offset;
+
+      if(newPageNumber < 0){
+        newPageNumber = 0;
+      }
+
+      parts[i] = newPageNumber;
+
+      break;
+    }
+  }
+
+  let newUrl = parts.join('/');
+
+  window.location.href = newUrl;
+
 };
 
 createAllTaskElements();
