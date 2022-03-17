@@ -55,8 +55,8 @@
 }
 
 .correct {
-  color: white;
-  background-color: green;
+  color: white !important;
+  background-color: green !important;
 }
 
 .incorrect {

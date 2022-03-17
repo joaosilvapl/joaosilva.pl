@@ -206,8 +206,6 @@ verifyTableTaskResults = (taskData, taskElements) => {
       let inputValue = inputElement.value;
       let expectedAnswerElement = expectedAnswerElements[j - 1];
 
-      inputElement.disabled = true;
-
       if (expectedValue == inputValue) {
         correctCount += 1;
         inputElement.className = "correct";
