@@ -43,7 +43,7 @@ allTasksData = [
         ["geben", "gibst","gib!"],
         ["sprechen", "sprichst","sprich!"],
         ["nehmen", "nimmst","nimm!"],
-        ["fahren", "fährst","fahr"],
+        ["fahren", "fährst","fahr!"],
         ["nett sein", "bist nett","sei nett!"],
         ["sagen", "sagst","sag!"],
         ["hören", "hörst","hör!"],
