@@ -181,6 +181,12 @@ verifyAllTaskResults = () => {
   document.getElementById(
     "resultsText"
   ).innerHTML = `Poprawne: ${correctCount}, niepoprawne: ${incorrectCount}`;
+
+  let verifyButton = document.getElementById("verifyButton")
+
+  verifyButton.innerText = "Zacząć od nowa";
+  verifyButton.className = "resetButton";
+  verifyButton.onclick = function(){location.reload();};
 };
 
 verifyTaskResults = (taskType, taskData, taskElements) => {
