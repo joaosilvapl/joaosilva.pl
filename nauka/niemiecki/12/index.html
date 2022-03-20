@@ -1,0 +1,60 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="../common/style.css"></link>
+    
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-V2H3ZXZ8R5"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-V2H3ZXZ8R5');
+    </script>
+
+</head>
+
+<body>
+
+    <div class="floating-menu">
+        <h3>Niemieckie litery</h3>
+        <div>
+            <button onclick="copyTextToClipboard('Ä');">Ä</button>
+            <button onclick="copyTextToClipboard('ä');">ä</button>
+            <button onclick="copyTextToClipboard('Ö');">Ö</button>
+            <button onclick="copyTextToClipboard('ö');">ö</button>
+            <button onclick="copyTextToClipboard('ẞ');">ẞ</button>
+            <button onclick="copyTextToClipboard('ß');">ß</button>
+            <button onclick="copyTextToClipboard('Ü');">Ü</button>
+            <button onclick="copyTextToClipboard('ü');">ü</button>
+    </div>
+    </div>
+  
+    <div class="center">
+        <img src="../common/germanflag.gif"/>
+<h1>Niemiecki - komplet zadań 12</h1>
+    </div>
+
+    <div class="center">
+        <button class="navigateButton" onclick="movePage(-1);">Poprzednia strona</button>
+        <button class="navigateButton" onclick="movePage(1);">Następna strona</button>
+    </div>
+
+    <div id="tasksDiv"></div>
+
+    <div class="center">
+        <button id="verifyButton" class="verifyButton" onclick="verifyAllTaskResults();">Sprawdź wyniki</button>
+        <span id="resultsText"></span>
+    </div>
+
+    <div class="center">
+        <button class="navigateButton" onclick="movePage(-1);">Poprzednia strona</button>
+        <button class="navigateButton" onclick="movePage(1);">Następna strona</button>
+    </div>
+
+    <script type="text/javascript" src="data.js"></script>
+    <script type="text/javascript" src="../common/code.js"></script>
+</body>
+
+</html>
