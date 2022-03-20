@@ -29,12 +29,12 @@ allTasksData = [
         ["übermorgen", "pojutrze"],
         ["vorgestern", "przedwczoraj"],
         ["Geschwister (Pl.)", "rodzeństwo"],
-        ["losgehen", "wyruszać"]
-        ["sich anziehen", "ubierać się"]
-        ["sich waschen", "myć się"]
-        ["dann", "potem"]
-        ["spät", "późno"]
-        ["zuerst", "najpierw"]
+        ["losgehen", "wyruszać"],
+        ["sich anziehen", "ubierać się"],
+        ["sich waschen", "myć się"],
+        ["dann", "potem"],
+        ["spät", "późno"],
+        ["zuerst", "najpierw"],
       ],
     },
   },
