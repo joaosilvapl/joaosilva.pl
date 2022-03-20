@@ -1,0 +1,119 @@
+.center {
+  text-align: center;
+}
+
+.taskHeader {
+  text-align: left;
+  font-size: large;
+  font-weight: bold;
+  font-family: Helvetica;
+  padding-top: 15px;
+  padding-bottom: 5px;
+}
+
+.taskTable {
+  border: "1px solid black";
+  width: 50%;
+  border-collapse: collapse;
+}
+
+.taskTableCell {
+  border: 1px solid;
+  width: 100%;
+}
+
+.taskTableHeaderCell {
+  border: 1px solid;
+  font-size: large;
+  background-color: lightgreen;
+  width: 100%;
+}
+
+.taskLine{
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+.visible {
+  display: block;
+}
+
+.verifyButton {
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.resetButton{
+  background-color: blue;
+  color: white;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px;
+}
+
+.navigateButton{
+  background-color: red;
+  color: white;
+  border: none;
+  color: white;
+  padding: 5px 5px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 2px;
+}
+
+.correct {
+  color: white !important;
+  background-color: green !important;
+}
+
+.incorrect {
+  background-color: red;
+  color: white;
+}
+
+.expectedAnswer {
+  font-style: italic;
+}
+
+.floating-menu {
+  font-family: sans-serif;
+  background: yellowgreen;
+  padding: 5px;
+  width: 130px;
+  z-index: 100;
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+}
+
+.floating-menu h3 {
+  font-size: 0.9em;
+  display: block;
+  margin: 0 0.5em;
+  color: white;
+}
+
+.choiceList{
+  background-color: blue;
+  color: white;
+}
+
